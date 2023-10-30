@@ -49,3 +49,16 @@ def scrape_reviews(url, num_pages):
                 file_number = len(files_in_folder) + 1
                 
                 file_name = f"{file_number:04d}.txt"
+                
+                with open(os.path.join(rating_folder, file_name), "w", encoding="utf-8") as file:
+                    file.write(review_txt)
+        else:
+            print("Сайт не дал записать отзыв")
+
+if __name__ == "__main__":
+    
+    url = "https://otzovik.com/reviews/market_yandex_ru-yandeks_market/"
+    
+    num_pages = 3
+    
+    scrape_reviews(url, num_pages)
